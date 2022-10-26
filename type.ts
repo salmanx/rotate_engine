@@ -3,3 +3,8 @@ export type DataType = {
   json: number[];
 };
 
+export type FormattedDataType = {
+  id: string;
+  json: string;
+  is_valid: Boolean;
+};

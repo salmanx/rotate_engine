@@ -39,7 +39,7 @@ export default class CSVParser {
           // Definitely We could write stream the data in somewhere else and make the class independent form RotateEngine
           const content = new RotateEngine(result);
           const rotatedContent = content.rotate();
-          new CSVFormatter(rotatedContent);
+          console.log(rotatedContent);
         }
       );
     } catch (error) {

@@ -19,7 +19,8 @@ export default class CSVParser {
       const fileContent: any = fs.readFileSync(csvFilePath, {
         encoding: "utf-8",
       });
-
+      // Parse does streaming behind the scene
+      // It read data asynchronously which takes care performance for large streaming file
       parse(
         fileContent,
         {

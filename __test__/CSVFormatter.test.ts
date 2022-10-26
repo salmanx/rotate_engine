@@ -24,16 +24,16 @@ describe("CSVFormatter", () => {
     instance = new CSVFormatter(rotatedDataAfterValidation, "output.csv");
   });
 
-  it("Should create an instance of CSVFormatter", async () => {
+  it("Should create an instance of CSVFormatter", () => {
     expect(instance).toBeInstanceOf(CSVFormatter);
   });
 
-  it("Should return formatted csv data", async () => {
+  it("Should return formatted csv data", () => {
     let spy = jest
       .spyOn(instance, "formatter")
-      .mockImplementation(() => null);
+      .mockImplementation(() => formattedData);
 
-    await expect(instance.formatter(rotatedDataAfterValidation)).toBe(null);
+    expect(instance.formatter(rotatedDataAfterValidation)).toBe(formattedData);
 
     spy.mockRestore();
   });

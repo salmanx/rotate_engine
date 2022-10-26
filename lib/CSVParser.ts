@@ -8,9 +8,12 @@ import CSVFormatter from "./CSVFormatter";
 
 export default class CSVParser {
   private headers = ["id", "json"];
+  private outputFilePath: string;
 
-  constructor(public fileName: string) {
-    const csvFilePath = path.resolve(__dirname, fileName);
+  constructor(public inputFile: string, public outputFile: string) {
+    const csvFilePath = path.resolve(__dirname, "..", inputFile);
+    this.outputFilePath = path.resolve(__dirname, "..", outputFile);
+
     this.parser(csvFilePath);
   }
 
@@ -40,7 +43,7 @@ export default class CSVParser {
           // Definitely We could write stream the data in somewhere else and make the class independent form RotateEngine
           const content = new RotateEngine(result);
           const rotatedContent = content.rotate();
-          new CSVFormatter(rotatedContent);
+          new CSVFormatter(rotatedContent, this.outputFilePath);
         }
       );
     } catch (error) {

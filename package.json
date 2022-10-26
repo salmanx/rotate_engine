@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev index",
+    "start": "ts-node-dev cli",
     "test": "jest"
   },
   "keywords": [],

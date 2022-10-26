@@ -1,4 +1,4 @@
-import { listToMatrix, transformMatrix } from "../utl";
+import { listToMatrix, transformMatrix } from "../lib/utl";
 
 test("It should convert list to matrix", () => {
   const list = [40, 20, 90, 10];

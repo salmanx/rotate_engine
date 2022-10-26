@@ -7,15 +7,20 @@
 // STEP: 7: If rotate method works, then build the flat list
 // STEP: 8: Write the flat list with expected format to CSV file
 
-import CSVParser from "./CSVParser";
+import CSVParser from "./lib/CSVParser";
 
 class Main {
   public start() {
-    const csvFile = process.argv[2];
-    if (csvFile) {
-      new CSVParser(csvFile);
+    const inputCsvFile = process.argv[2];
+    const outputCsvFile = process.argv[3];
+
+    if (inputCsvFile && outputCsvFile) {
+      new CSVParser(inputCsvFile, outputCsvFile);
     } else {
-      console.error("Please pass a csv file as argument.");
+      console.error(
+        "Please pass a csv file for input and output as argument. "
+      );
+      console.error("like this: node cli.js input.csv  output.csv ");
       process.exit();
     }
   }

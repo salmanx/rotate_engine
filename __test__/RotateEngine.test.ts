@@ -1,4 +1,4 @@
-import RotateEngine from "../RotateEngine";
+import RotateEngine from "../lib/RotateEngine";
 
 describe("RotateEngine", () => {
   let instance: RotateEngine;

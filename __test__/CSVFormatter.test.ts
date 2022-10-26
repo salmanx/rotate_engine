@@ -1,5 +1,4 @@
-import CSVFormatter from "../CSVFormatter";
-import * as csv from "fast-csv";
+import CSVFormatter from "../lib/CSVFormatter";
 
 describe("CSVFormatter", () => {
   let instance: CSVFormatter;
@@ -22,19 +21,19 @@ describe("CSVFormatter", () => {
     6,"[]",false
     `;
   beforeEach(() => {
-    instance = new CSVFormatter(rotatedDataAfterValidation);
+    instance = new CSVFormatter(rotatedDataAfterValidation, "output.csv");
   });
 
   it("Should create an instance of CSVFormatter", async () => {
     expect(instance).toBeInstanceOf(CSVFormatter);
   });
 
-  it("Should return formatted csv data", () => {
+  it("Should return formatted csv data", async () => {
     let spy = jest
       .spyOn(instance, "formatter")
-      .mockImplementation(() => formattedData);
+      .mockImplementation(() => null);
 
-    expect(instance.formatter(rotatedDataAfterValidation)).toBe(formattedData);
+    await expect(instance.formatter(rotatedDataAfterValidation)).toBe(null);
 
     spy.mockRestore();
   });
